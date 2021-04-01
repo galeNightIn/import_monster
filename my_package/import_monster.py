@@ -2,7 +2,6 @@ from types import ModuleType
 from typing import List, Optional, Union, Callable
 import importlib
 
-
 def methods_importer(
     method_name: str, modules: List[Union[str, ModuleType]]
 ) -> List[Callable]:
@@ -22,6 +21,6 @@ def methods_importer(
             continue
     return methods_list
 
-
-my_list = methods_importer("func3", ["my_mod", "my_mod2"])
-print(my_list)
+if __name__ == "__main__":
+    my_list = methods_importer("func3", ["my_mod1", "my_mod2"])
+    print(my_list)
