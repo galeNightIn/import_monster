@@ -1,4 +1,4 @@
-PACKAGES="seminar_package"
+PACKAGES="my_package"
 
 all: install black
 
