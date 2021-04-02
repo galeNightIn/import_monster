@@ -20,7 +20,3 @@ def methods_importer(
         except ImportError:
             continue
     return methods_list
-
-if __name__ == "__main__":
-    my_list = methods_importer("func1", ["my_mod1", "my_mod2", "my_mod3"])
-    print(my_list)
