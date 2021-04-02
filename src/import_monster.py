@@ -15,12 +15,12 @@ def methods_importer(
             else:
                 raise TypeError("Ahctung! it is neither the str nor the module")
             met = getattr(mod, method_name, None)
-            if met and met.__call__:
+            if met and isinstance(met, Callable):
                 methods_list.append(met)
         except ImportError:
             continue
     return methods_list
 
 if __name__ == "__main__":
-    my_list = methods_importer("func3", ["my_mod1", "my_mod2"])
+    my_list = methods_importer("func1", ["my_mod1", "my_mod2", "my_mod3"])
     print(my_list)

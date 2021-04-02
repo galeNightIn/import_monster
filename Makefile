@@ -1,4 +1,4 @@
-PACKAGES="my_package"
+PACKAGES="src"
 
 all: install black
 
