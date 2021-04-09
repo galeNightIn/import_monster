@@ -1,6 +1,8 @@
+from collections import Iterable
 from types import ModuleType
 from typing import List, Optional, Union, Callable
 import importlib
+
 
 def methods_importer(
     method_name: str, modules: List[Union[str, ModuleType]]

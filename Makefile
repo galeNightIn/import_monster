@@ -1,8 +1,5 @@
 PACKAGES="src"
 
-pytest:
-	@pytest
-
 all: install black
 
 black:
@@ -37,3 +34,6 @@ install:
 
 install-pre-commit: install-dev
 	@pre-commit install
+
+pytest:
+	@pytest

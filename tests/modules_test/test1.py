@@ -7,5 +7,5 @@ def callable_method():
 def non_collable_method():
     return
 
-def my_sum():
-    return 1+1
+def my_sum(x=1, y=1):
+    return x+y
