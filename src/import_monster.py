@@ -20,7 +20,3 @@ def methods_importer(
         except ImportError:
             continue
     return methods_list
-
-import test1
-
-
