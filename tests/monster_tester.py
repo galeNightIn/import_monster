@@ -1,7 +1,6 @@
 import types
 
-import numpy as np
-import pandas as pd
+import numpy
 import math
 import pytest
 
@@ -10,52 +9,52 @@ from tests.modules_test import test1
 
 def callable_test():
     assert isinstance(test1, types.ModuleType)
-    result = methods_importer(
+    isok = methods_importer(
         method_name='callable_method',
         modules_test=[test1])
-    assert result == [test1.test_callable]
+    assert isok == [test1.test_callable]
 
 def non_callable_test_const():
     assert isinstance(test1, types.ModuleType)
-    result = methods_importer(
+    isok = methods_importer(
         method_name='const',
         modules=[test1])
-    assert result == []
+    assert isok == []
 
 def non_callable_test_method():
     assert isinstance(test1, types.ModuleType)
-    result = methods_importer(
+    isok = methods_importer(
         method_name='non_collable_method',
         modules=[test1])
-    assert result == []
+    assert isok == []
 
 def incorrect_type():
     with pytest.raises(TypeError):
         methods_importer(
-            method_name='callable_method',
-            modules=[test2])
+            method_name='callable_test',
+            modules=[test1])
 
 
 def str_module_test():
-    result = methods_importer(
+    isok = methods_importer(
         method_name='sum',
         modules=['numpy'])
-    assert result == [np.sum]
+    assert isok == [numpy.sum]
 
 def two_modules_collable_test():
-    result = methods_importer(
+    isok = methods_importer(
         method_name='sin',
         modules=['numpy', 'math'])
-    assert result == [numpy.sin, math.sin]
+    assert isok == [numpy.sin, math.sin]
 
 def two_modules_non_collable_test():
-    result = methods_importer(
+    isok = methods_importer(
         method_name='pi',
         modules=['numpy', 'math'])
-    assert result == []
+    assert isok == []
 
 def test_methods_importer_nonexistant_module():
-    result = methods_importer(
+    isok = methods_importer(
         method_name='array',
         modules=[test1, 'nonexistant'])
-    assert result == [test1.array]
+    assert isok == [test1.array]
