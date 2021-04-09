@@ -2,6 +2,7 @@ import types
 
 import numpy as np
 import pandas as pd
+import math
 import pytest
 
 from src.import_monster import methods_importer
