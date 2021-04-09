@@ -53,8 +53,8 @@ def two_modules_non_collable_test():
         modules=['numpy', 'math'])
     assert isok == []
 
-def test_methods_importer_nonexistant_module():
+def test_methods_importer_other_module():
     isok = methods_importer(
-        method_name='array',
-        modules=[test1, 'nonexistant'])
-    assert isok == [test1.array]
+        method_name='my_sum',
+        modules=[test1, 'other'])
+    assert isok == [test1.my_sum]
