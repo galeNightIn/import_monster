@@ -1,3 +1,4 @@
+REQUIREMENTS="requirements.txt"
 PACKAGES="src"
 
 all: install black
@@ -24,5 +25,17 @@ clean:
 	@rm -f .develop
 	@rm -f .flake
 
+install-dev: uninstall
+	@pip install -r ${REQUIREMENTS_DEV}
+	@pip install -e .
+
 install:
 	@pip install -r requirements.txt
+        @echo "Done"
+
+
+install-pre-commit: install-dev
+	@pre-commit install
+
+
+.PHONY: all install-dev uninstall clean test
