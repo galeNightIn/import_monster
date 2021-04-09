@@ -1,4 +1,3 @@
-REQUIREMENTS="requirements.txt"
 PACKAGES="src"
 
 pytest:
@@ -39,6 +38,3 @@ install:
 
 install-pre-commit: install-dev
 	@pre-commit install
-
-
-.PHONY: all install-dev uninstall clean test
