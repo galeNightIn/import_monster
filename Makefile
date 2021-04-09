@@ -1,6 +1,9 @@
 REQUIREMENTS="requirements.txt"
 PACKAGES="src"
 
+pytest:
+	@pytest
+
 all: install black
 
 black:
