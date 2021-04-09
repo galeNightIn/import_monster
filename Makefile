@@ -1,7 +1,7 @@
 PACKAGES="src"
 
 pytest:
-	@pytest -s
+	@pytest
 
 all: install black
 
@@ -33,8 +33,7 @@ install-dev: uninstall
 
 install:
 	@pip install -r requirements.txt
-        @echo "Done"
-
+	@echo "Done"
 
 install-pre-commit: install-dev
 	@pre-commit install
