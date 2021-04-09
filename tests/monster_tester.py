@@ -6,7 +6,7 @@ import math
 import pytest
 
 from src.import_monster import methods_importer
-from test.modules_test import test1
+from tests.modules_test import test1
 
 def callable_test():
     assert isinstance(test1, types.ModuleType)
@@ -36,7 +36,7 @@ def incorrect_type():
             modules=[test2])
 
 
-def string_module_test():
+def str_module_test():
     result = methods_importer(
         method_name='sum',
         modules=['numpy'])
