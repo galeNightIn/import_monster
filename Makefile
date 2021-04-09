@@ -1,7 +1,7 @@
 PACKAGES="src"
 
 pytest:
-	@pytest
+	@pytest -s
 
 all: install black
 
