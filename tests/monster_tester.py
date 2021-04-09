@@ -12,7 +12,7 @@ def callable_test():
     isok = methods_importer(
         method_name='callable_method',
         modules_test=[test1])
-    assert isok == [test1.test_callable]
+    assert isok == [test1.callable_method]
 
 def non_callable_test_const():
     assert isinstance(test1, types.ModuleType)
