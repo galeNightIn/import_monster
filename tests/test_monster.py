@@ -4,34 +4,34 @@ import math
 import pytest
 
 from src.import_monster import methods_importer
-from tests.modules_test import test1
+from tests.test_modules import test_1
 
-def callable_test():
-    assert isinstance(test1, types.ModuleType)
+def test_callable():
+    assert isinstance(test_1, types.ModuleType)
     isok = methods_importer(
         method_name='callable_method',
-        modules_test=[test1])
-    assert isok == [test1.callable_method]
+        modules_test=(test_1, 
+    assert isok == [(test_1, .callable_method]
 
-def non_callable_test_const():
-    assert isinstance(test1, types.ModuleType)
+def test_non_callable_const():
+    assert isinstance(test_1, types.ModuleType)
     isok = methods_importer(method_name='const', modules=[test1])
     assert isok == []
 
-def non_callable_test_method():
-    assert isinstance(test1, types.ModuleType)
+def test_non_callable_method():
+    assert isinstance(test_1, types.ModuleType)
     isok = methods_importer(method_name='non_collable_method', modules=[test1])
     assert isok == []
 
-def incorrect_type():
+def test_incorrect_type():
     with pytest.raises(TypeError):
         methods_importer(method_name='callable_test', modules=[test1])
 
-def str_module_test():
+def test_str_modul():
     isok = methods_importer(method_name='sum', modules=['numpy'])
     assert isok == [numpy.sum]
 
-def two_modules_collable_test():
+def test_two_modules_collable():
     isok = methods_importer(method_name='sin', modules=['numpy', 'math'])
     assert isok == [numpy.sin, math.sin]
 

@@ -24,16 +24,17 @@ clean:
 	@rm -f .develop
 	@rm -f .flake
 
-install-dev: uninstall
-	@pip install -r ${REQUIREMENTS_DEV}
-	@pip install -e .
-
 install:
 	@pip install -r requirements.txt
-	@echo "Done"
 
-install-pre-commit: install-dev
-	@pre-commit install
+install-dev:
+	@pip install -r requirements/dev.txt
+
+install-test:
+	@pip install -r requirements/test.txt
+	@pip install -e .
+
+install-all: install-dev install-test
 
 pytest:
 	@pytest
