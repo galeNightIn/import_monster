@@ -5,6 +5,12 @@ all: install black
 black:
 	@black ${PACKAGES}
 
+isort:
+	@isort ${PACKAGES}
+
+flake8:
+	@flake8 ${PACKAGES}
+
 clean:
 	@rm -rf `find . -name __pycache__`
 	@rm -f `find . -type f -name '*.py[co]' `
@@ -28,13 +34,13 @@ install:
 	@pip install -r requirements.txt
 
 install-dev:
-	@pip install -r requirements_dev.txt
+	@pip install -r requirements-dev.txt
 
 install-test:
-	@pip install -r requirements_test.txt
+	@pip install -r requirements-test.txt
 	@pip install -e .
 
 install-all: install-dev install-test
 
 pytest:
-	@pytest
+	@pytest	tests

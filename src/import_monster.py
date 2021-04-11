@@ -1,7 +1,6 @@
-from collections import Iterable
-from types import ModuleType
-from typing import List, Optional, Union, Callable
 import importlib
+from types import ModuleType
+from typing import Callable, List, Union
 
 
 def methods_importer(
@@ -15,7 +14,7 @@ def methods_importer(
             elif isinstance(module, str):
                 mod = importlib.import_module(module)
             else:
-                raise TypeError("Ahctung! it is neither the str nor the module")
+                raise TypeError("Ahctung! Neither the str nor the module")
             met = getattr(mod, method_name, None)
             if met and isinstance(met, Callable):
                 methods_list.append(met)
