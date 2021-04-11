@@ -9,9 +9,9 @@ from tests.test_modules import test_1
 def test_callable():
     assert isinstance(test_1, types.ModuleType)
     isok = methods_importer(
-        method_name='test_callable',
+        method_name='test_callable_method',
         modules_test=(test_1, 
-    assert isok == [test_1.test_callable]
+    assert isok == [test_1.test_callable_method]
 
 def test_non_callable_const():
     assert isinstance(test_1, types.ModuleType)
@@ -25,7 +25,7 @@ def test_non_callable_method():
 
 def test_incorrect_type():
     with pytest.raises(TypeError):
-        methods_importer(method_name='test_callable', modules=[test1])
+        methods_importer(method_name='test_callable_nehtod', modules=[test1])
 
 def test_str_module():
     isok = methods_importer(method_name='sum', modules=['numpy'])
@@ -35,10 +35,14 @@ def test_two_modules_collable():
     isok = methods_importer(method_name='sin', modules=['numpy', 'math'])
     assert isok == [numpy.sin, math.sin]
 
+def test_two_more_modules_collable():
+    isok = methods_importer(method_name='sin', modules=['numpy', test_1])
+    assert isok == [numpy.sum, test_1.sum]
+
 def two_modules_non_collable_test():
     isok = methods_importer(method_name='pi', modules=['numpy', 'math'])
     assert isok == []
 
 def test_methods_importer_other_module():
-    isok = methods_importer(method_name='my_sum', modules=[test_1, 'other'])
-    assert isok == [test_1.my_sum]
+    isok = methods_importer(method_name='sum', modules=[test_1, 'other'])
+    assert isok == [test_1.sum]

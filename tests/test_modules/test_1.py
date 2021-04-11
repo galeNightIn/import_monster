@@ -1,11 +1,11 @@
 const = 1
 
-def callable_method():
+def test_callable_method():
     return
 
 @property
-def non_collable_method():
+def test_non_collable_method():
     return
 
-def my_sum(x=1, y=1):
+def sum(x=1, y=1):
     return x+y
