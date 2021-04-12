@@ -1,29 +1,26 @@
-default_stages: [commit, push]
-exclude: '^venv/*'
+
 repos:
-  - repo: https://github.com/asottile/seed-isort-config
-    rev: v1.9.3
-    hooks:
-      - id: seed-isort-config
   - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v4.3.21
+    rev: v5.8.0
     hooks:
       - id: isort
   - repo: https://github.com/pre-commit/mirrors-autopep8
-    rev: v1.4.4
+    rev: v1.5.6
     hooks:
       - id: autopep8
-  - repo: https://github.com/psf/black
-    rev: v20.8b1
-    hooks:
-      - id: black
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v3.4.0
     hooks:
       - id: fix-encoding-pragma
       - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: flake8
-        args: [--max-line-length=88]
-      - id: double-quote-string-fixer
       - id: check-docstring-first
+      - id: check-added-large-files
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+      - id: flake8
+  - repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+

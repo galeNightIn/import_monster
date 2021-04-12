@@ -1,15 +1,17 @@
 PACKAGES="src"
+REQUIREMENTS_DEV="requirements-dev.txt"
+REQUIREMENTS="requirements.txt"
 
 all: install black
+
+pytest:
+	@pytest
 
 black:
 	@black ${PACKAGES}
 
 isort:
 	@isort ${PACKAGES}
-
-flake8:
-	@flake8 ${PACKAGES}
 
 clean:
 	@rm -rf `find . -name __pycache__`
@@ -30,17 +32,16 @@ clean:
 	@rm -f .develop
 	@rm -f .flake
 
-install:
-	@pip install -r requirements.txt
-
 install-dev:
-	@pip install -r requirements-dev.txt
-
-install-test:
-	@pip install -r requirements-test.txt
+	@pip install -r ${REQUIREMENTS_DEV}
 	@pip install -e .
+
+install:
+	@pip install -r ${REQUIREMENTS}
+
+install-pre-commit: install-dev
+	@pre-commit install
 
 install-all: install-dev install-test
 
-pytest:
-	@pytest	tests
+.PHONY: all install-dev uninstall clean test
