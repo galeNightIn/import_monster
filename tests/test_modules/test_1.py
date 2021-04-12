@@ -3,7 +3,7 @@
 const = 1
 
 
-def test_callable_method():
+def test_callable():
     """
     Call callable method.
     Test_callable_method is callable,
@@ -13,7 +13,7 @@ def test_callable_method():
 
 
 @property
-def test_non_collable_method():
+def test_non_collable():
     """Decorator makes it non callable,
     that can be a good check.
     """
