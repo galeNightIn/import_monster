@@ -38,6 +38,7 @@ install-dev:
 
 install:
 	@pip install -r ${REQUIREMENTS}
+	@pip install -e .
 
 install-pre-commit: install-dev
 	@pre-commit install
