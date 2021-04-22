@@ -5,7 +5,8 @@ import types
 import numpy
 import pytest
 from import_monster.src.import_monster import methods_importer
-from import_monster.tests.test_modules import test_1
+
+from tests.test_modules import test_1
 
 
 def test_callable_method():
