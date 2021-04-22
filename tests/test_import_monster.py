@@ -4,8 +4,8 @@ import types
 
 import numpy
 import pytest
-from import_monster.src.import_monster import methods_importer
 
+from src.import_monster import methods_importer
 from tests.test_modules import test_1
 
 
