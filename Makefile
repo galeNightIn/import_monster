@@ -2,6 +2,7 @@ PACKAGES="src"
 REQUIREMENTS_DEV="requirements-dev.txt"
 REQUIREMENTS="requirements.txt"
 
+
 all: install black
 
 check_all:
