@@ -4,8 +4,6 @@ REQUIREMENTS="requirements.txt"
 
 all: install black
 
-all: pre-commit run --all-files
-
 pytest:
 	@pytest
 
@@ -40,10 +38,6 @@ install-dev:
 
 install:
 	@pip install -r ${REQUIREMENTS}
-	@pip install -e .
-
-install-test:
-	@pip install -r ${REQUIREMENTS_TEST}
 	@pip install -e .
 
 install-pre-commit: install-dev
