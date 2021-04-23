@@ -6,8 +6,6 @@ on:
       - master
 
 jobs:
-  build:
-    name: Test
   test:
     runs-on: ubuntu-latest
     needs: [dumb]
