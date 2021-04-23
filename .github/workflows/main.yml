@@ -1,3 +1,5 @@
+name: Test
+
 on:
   push:
     branches:
@@ -17,6 +19,7 @@ jobs:
         run: make install-dev
       - name: Test with pytest
         run: make test
+
   pre-commit:
     runs-on: ubuntu-latest
     steps:
