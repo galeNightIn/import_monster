@@ -1,25 +1,25 @@
 name: action push
 
 on:
-    push
+  push
 
-    jobs:
-      upload:
+jobs:
+  upload:
 
-        runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-python@v2
-            with:
-              python-version: '3.7'
-          - name: Install dependencies
-            run: make install-dev
-          - name: Test with pytest
-            run: make test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - name: Install dependencies
+        run: make install-dev
+      - name: Test with pytest
+        run: make test
 
-      pre-commit:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-python@v2
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
