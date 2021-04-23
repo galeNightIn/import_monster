@@ -25,6 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      # Here use make install-pre-commit
+      # - uses: actions/install-pre-commit
       # Create new target in Makefile called `run-pre-commit`
       # Execute `pre-commit run` inside this target

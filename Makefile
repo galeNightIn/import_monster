@@ -5,7 +5,7 @@ REQUIREMENTS="requirements.txt"
 all: install black
 
 check_all:
-        pre-commit run --all-files
+	pre-commit run --all-files
 
 pytest:
 	@pytest
