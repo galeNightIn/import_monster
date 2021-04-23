@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  first-job:
+  build:
     name: Test
   test:
     runs-on: ubuntu-latest
