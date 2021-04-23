@@ -1,7 +1,7 @@
 import importlib
 from types import ModuleType
 from typing import Callable, List, Union
-
+import numpy as np
 
 def methods_importer(
     method_name: str, modules: List[Union[str, ModuleType]]
