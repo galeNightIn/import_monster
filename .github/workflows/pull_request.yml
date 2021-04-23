@@ -1,0 +1,25 @@
+name: action pull
+
+on: pull_request
+
+    jobs:
+      upload:
+
+        runs-on: ubuntu-latest
+
+        steps:
+          - uses: actions/checkout@v2
+          - uses: actions/setup-python@v2
+            with:
+              python-version: '3.7'
+          - name: Install dependencies
+            run: make install-dev
+          - name: Test with pytest
+            run: make test
+
+      pre-commit:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+          - uses: actions/setup-python@v2
+          - uses: actions/pre-commit/action@v2.0.2
