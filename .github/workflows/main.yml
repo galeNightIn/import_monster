@@ -3,7 +3,7 @@
 
 name: Python application
 
-on: [push, pull_request, pre-commit]
+on: [push, pull_request]
 
 jobs:
   test:
