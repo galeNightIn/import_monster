@@ -1,4 +1,4 @@
-name: Push events on master branch
+name: Test Workflow
 
 on:
   push:
@@ -6,12 +6,8 @@ on:
       - master
 
 jobs:
-  dumb:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Say Im alive
-        run: echo "Im alive"
-
+  first-job:
+    name: Test
   test:
     runs-on: ubuntu-latest
     needs: [dumb]
@@ -25,3 +21,11 @@ jobs:
         run: make install-dev
       - name: Test with pytest
         run: make test
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      # Here use make install-pre-commit
+      # Create new target in Makefile called `run-pre-commit`
+      # Execute `pre-commit run` inside this target
