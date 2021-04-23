@@ -13,7 +13,7 @@ def test_callable():
 
 
 @property
-def test_non_collable():
+def test_non_callable():
     """Decorator makes it non callable,
     that can be a good check.
     """
