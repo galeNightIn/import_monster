@@ -24,6 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - name: run pre commit
+      - name: install pre commit
+        run: make install-pre-commit
+      - name: and run pre-commit
         run: make check_all
   
